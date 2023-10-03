@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+</head>
+
+<body>
+    <div id="humen" style="margin-top: 250px; margin-left: 300px;">
+        <svg width="70" height="145" viewBox="0 0 70 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="70" height="145" fill="#F5F5F5" />
+            <ellipse cx="37.1941" cy="18.3012" rx="18.4954" ry="18.089" fill="#D9D9D9" />
+            <rect x="31.3" y="34.3577" width="11.3818" height="58.9415" fill="#D9D9D9" />
+            <rect y="77.7863" width="45.5861" height="6.0974" transform="rotate(-46.8652 0 77.7863)" fill="#D9D9D9" />
+            <rect x="43.1365" y="44.52" width="45.5842" height="6.0974" transform="rotate(53.8914 43.1365 44.52)"
+                fill="#D9D9D9" />
+            <rect x="31.3579" y="90.4538" width="6.91039" height="53.6571" transform="rotate(15.8909 31.3579 90.4538)"
+                fill="#D9D9D9" />
+            <rect x="35.7714" y="91.9529" width="6.91039" height="53.6571" transform="rotate(-12.5294 35.7714 91.9529)"
+                fill="#D9D9D9" />
+        </svg>
+    </div>
+    <script>
+
+        let charecter = document.getElementById("humen");
+
+        class humen {
+            constructor() {
+                this.name = "aimrmohamad";
+                this.age = 13;
+                this.heigh = 10;
+                this.y = 0;
+                this.liveInTheGame = () => {
+                    this.changeY = () => {
+
+                        charecter.addEventListener("click", () => {
+                            let intId = setInterval(() => {
+                                this.y-=2;
+                                charecter.style.transform = `translate3d(0,${this.y}px,0)`;
+                                if (this.y == -200) {
+                                    clearInterval(intId);
+                                    setTimeout(() => {
+                                        var intId2 = setInterval(() => {
+                                            this.y+=2;
+                                            charecter.style.transform = `translate3d(0,${this.y}px,0)`;
+
+                                            if (this.y == -100) {
+                                                clearInterval(intId2);
+                                            }
+                                        }, 1)
+                                    },60)
+                                }
+                            }, 2)
+                        })
+
+
+
+
+                    }
+                }
+            }
+        }
+        var amirmohamad = new humen();
+        amirmohamad.liveInTheGame();
+        amirmohamad.changeY();
+    </script>
+</body>
+
+</html>
